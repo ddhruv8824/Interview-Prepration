@@ -1,0 +1,56 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic List with Event Delegation</title>
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        padding: 10px;
+        background-color: #f0f0f0;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+      li:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dynamic List with Event Delegation</h1>
+    <button id="add-item">Add Item</button>
+    <ul id="list-container">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+
+    <script>
+      const listContainer = document.getElementById("list-container");
+      const addItemButton = document.getElementById("add-item");
+      let itemCount = 3;
+
+      // Event listener for clicks on the <ul> element
+      listContainer.addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+          alert(`You clicked on: ${event.target.textContent}`);
+          event.target.style.backgroundColor = "#6f00ff"; // Highlight the clicked item
+        }
+      });
+
+      // Add a new list item
+      addItemButton.addEventListener("click", () => {
+        itemCount++;
+        const newItem = document.createElement("li");
+        newItem.textContent = `Item ${itemCount}`;
+        listContainer.appendChild(newItem);
+      });
+    </script>
+  </body>
+</html>

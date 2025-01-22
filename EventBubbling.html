@@ -1,0 +1,52 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling Demo</title>
+    <style>
+      #outer {
+        padding: 20px;
+        background-color: #f0a0a0;
+      }
+      #middle {
+        padding: 20px;
+        background-color: #a0f0a0;
+      }
+      #inner {
+        padding: 10px;
+        background-color: #a0a0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Event Bubbling Demo</h1>
+    <div id="outer">
+      Outer Div
+      <section id="middle">
+        Middle Section
+        <button id="inner">Click Me</button>
+      </section>
+    </div>
+
+    <script>
+      const outer = document.getElementById("outer");
+      const middle = document.getElementById("middle");
+      const inner = document.getElementById("inner");
+
+      outer.addEventListener("click", (event) => {
+        console.log("Outer Div Clicked!");
+      });
+
+      middle.addEventListener("click", (event) => {
+        console.log("Middle Section Clicked!");
+      });
+
+      inner.addEventListener("click", (event) => {
+        console.log("Inner Button Clicked!");
+      });
+    </script>
+  </body>
+</html>
